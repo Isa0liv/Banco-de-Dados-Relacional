@@ -32,7 +32,7 @@ CONSTRAINT UC_Cliente unique(CPF, TelefoneCelular)
 
 E a tabela Carro: 
 
-CREATE TABLE Carro(
+```CREATE TABLE Carro(
 CodCarro INT Primary Key,
 Placa VARCHAR(45),
 Marca VARCHAR(45),
@@ -40,14 +40,14 @@ Modelo VARCHAR(45),
 Ano VARCHAR(45),
 Chassi VARCHAR(45),
 Cor VARCHAR (45),
-);
+);```
 
 
 <h2>Criando outras tabela usando Foreign Key</h2>
 
 Logo após fizemos as outras usando o Foreign Key para conectar elas: 
 
-CREATE TABLE Apolice (
+```CREATE TABLE Apolice (
 CodApolice INT Primary Key,
 ValorCobertura DECIMAL not null,
 ValorFranquia DECIMAL not null,
@@ -56,11 +56,11 @@ DataFimVigencia DATE not null,
 Cliente_CodCliente INT FOREIGN KEY REFERENCES Cliente(CodCliente),
 Carro_CodCarro INT FOREIGN KEY REFERENCES Carro(CodCarro),
 CONSTRAINT CD_DataInicioVigencia CHECK (DataInicioVigencia <= GETDATE())
-);
+);```
 
 E por último: 
 
-CREATE TABLE Sinistro (
+```CREATE TABLE Sinistro (
 CodSinistro INT,
 HoraSinistro INT, 
 DataSinistro DATE,
@@ -68,6 +68,6 @@ LocalSinistro VARCHAR(45),
 Condutor VARCHAR(45),
 Carro_CodCarro INT foreign key references Carro(CodCarro),
 primary key(CodSinistro, Carro_CodCarro)
-);
+);```
 
 Por fim finalizando a tarefa. 
